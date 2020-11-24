@@ -1,0 +1,13 @@
+Used TinyMCE as the text editor and here's the api key
+Tiny.Cloud to get api key for TinyMCE editor
+https://www.tiny.cloud/docs/integrations/react/
+https://www.tiny.cloud/blog/how-to-get-tinymce-cloud-up-in-less-than-5-minutes/
+https://www.tiny.cloud/blog/react-rich-text-editor/
+
+apiKey = "3rc40kpnnv698neatb34c8fw2zfctnavcegd49sri6ix9s2d"
+
+
+Framer Motion is used the for the animation
+
+Bootstrap for the front end
+
