@@ -12,6 +12,7 @@ import axios from 'axios';
 // These need to be imported in order for components to animate when switching between pages
 import { motion } from 'framer-motion';
 import { pageTransition, pageVariants, pageStyle } from './FrameMotion';
+import UserProfile from "../Components/UserProfile";
 
 
 const Entry = () => {
@@ -21,13 +22,11 @@ const Entry = () => {
 
     //manage getting data from TinyMCE form
     const handleEditorChange = (content, editor) => {
-        console.log('Content was updated:', content);
         setContentEditor(content);
     }
 
     const handleHeadlineChange = (e) => {
         setHeadline(e.target.value)
-        console.log(headline);
     }
 
     //post entry to 'gratitude' table
@@ -35,7 +34,8 @@ const Entry = () => {
         e.preventDefault();
         axios.post('http://localhost:4000/api/gratitude', {
             entry: contentEditor,
-            title: headline
+            title: headline,
+            id: UserProfile.getId()
         })
         .then((res) => {
             console.log(res);

@@ -17,17 +17,14 @@ function Register() {
 
     const handleEmail = (e) => {
         setUserEmail(e.target.value);
-        console.log(userEmail);
     }
 
     const handlePassword = (e) => {
         setUserPassword(e.target.value);
-        console.log(userPassword);
     }
 
     const handleName = (e) => {
         setUserName(e.target.value);
-        console.log(userName);
     }
 
     //Quick test to take email and password and name, and if successful, redirect to /Login
@@ -55,7 +52,7 @@ function Register() {
         >
             <div className="row">
                 <div className="col-sm-6 px-0 d-none d-sm-block">
-                    <img src={iclaugh} alt="login image" className="login-img" />
+                    <img src={iclaugh} alt="Woman laughing" className="login-img" />
                 </div>
 
                 <div className="col-sm-6 login-section-wrapper">
@@ -64,17 +61,17 @@ function Register() {
                         <h1 className="login-title">Register</h1>
                         <form action="#!">
                             <div className="form-group">
-                                <label for="email">Email</label>
+                                <label htmlFor="email">Email</label>
                                 <input onChange={handleEmail} type="email" name="email" id="registerEmail" className="form-control"
                                     placeholder="email@example.com" />
                             </div>
                             <div className="form-group mb-4">
-                                <label for="password">Password</label>
+                                <label htmlFor="password">Password</label>
                                 <input onChange={handlePassword} type="password" name="password" id="registerPass" className="form-control"
                                     placeholder="enter your passsword" />
                             </div>
                             <div className="form-group mb-4">
-                                <label for="name">Name</label>
+                                <label htmlFor="name">Name</label>
                                 <input onChange={handleName} type="name" name="name" id="registerName" className="form-control"
                                     placeholder="enter your name" />
                             </div>

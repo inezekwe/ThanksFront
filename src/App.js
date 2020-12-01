@@ -12,6 +12,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './App.css';
+import './css/Landing.css'
+import SavedQuotes from './Components/SavedQuotes';
 
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
                   <Route exact path='/Collection' component={Collection} />
                   <Route exact path='/Entry' component={Entry} />
                   <Route exact path='/TimeLine' component={TimeLine} />
+                  <Route exact path='/SavedQuotes' component={SavedQuotes} />
                   <Route exact path='/Login' component={Login} />
                   <Route exact path='/Register' component={Register} />
                 </Switch>
@@ -38,7 +41,7 @@ function App() {
     
           </Col>
         </Row> 
-      </Container> 
+            </Container> 
     </div>
 
   );

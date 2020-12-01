@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { pageTransition, pageVariants, pageStyle } from './FrameMotion';
 import axios from 'axios';
 import '../css/Collection.css';
+import Button from 'react-bootstrap/Button';
+import UserProfile from '../Components/UserProfile';
 
 
 function Collection() {
@@ -10,7 +12,9 @@ function Collection() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:4000/api/gratitude`)
+            .post(`http://localhost:4000/api/saved_gratitudes`, {
+                id: UserProfile.getId()
+            })
             .then(res => {
                 console.log(res)
                 setPosts(res.data);
@@ -35,12 +39,13 @@ function Collection() {
             posts.map((post) => (
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt="" /></a>
+                        <a href="#"><img class="card-img-top" src="https://picsum.photos/id/1022/1024/517" alt="Inspirational" /></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="#">{post.title}</a>
+                                {post.title}
                             </h4>
                             <p class="card-text">{post.entry}</p>
+                            <Button variant="info" className="mr-3 mb-3">Remove</Button>
                         </div>
                     </div>
                 </div>

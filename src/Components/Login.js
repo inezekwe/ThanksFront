@@ -3,6 +3,7 @@ import '../css/Login.css';
 import jmhappy from '../images/jmhappy.jpg';
 import { NavLink, useHistory } from 'react-router-dom';
 import axios from 'axios';
+import UserProfile from '../Components/UserProfile';
 
 // These need to be imported in order for components to animate when switching between pages
 import { motion } from 'framer-motion';
@@ -17,12 +18,12 @@ function Login() {
 
     const handleEmail = (e) => {
         setUserEmail(e.target.value);
-        console.log(userEmail);
+        //console.log(userEmail);
     }
 
     const handlePassword = (e) => {
         setUserPassword(e.target.value);
-        console.log(userPassword);
+        //console.log(userPassword);
     }
 
     //Quick test to take email and password, and if successful, redirect to /Home
@@ -32,7 +33,11 @@ function Login() {
             password: userPassword
         })
         .then((res) => {
-            if (res.data === "OK") {
+            console.log(res);
+            if (res.data.message === "OK") {
+                UserProfile.setName(res.data.response[0].name);
+                UserProfile.setId(res.data.response[0].id);
+                console.log(UserProfile.getName() + UserProfile.getId());
                 history.push('/Home');
             }
         })
@@ -54,12 +59,12 @@ function Login() {
                         <h1 className="login-title">Log in</h1>
                         <form action="#!">
                             <div className="form-group">
-                                <label for="email">Email</label>
+                                <label htmlFor="email">Email</label>
                                 <input onChange={handleEmail} type="email" name="email" id="loginEmail" className="form-control"
                                     placeholder="email@example.com" />
                             </div>
                             <div className="form-group mb-4">
-                                <label for="password">Password</label>
+                                <label htmlFor="password">Password</label>
                                 <input onChange={handlePassword} type="password" name="password" id="loginPass" className="form-control"
                                     placeholder="enter your passsword" />
                             </div>
@@ -72,7 +77,7 @@ function Login() {
                     </div>
                 </div>
                 <div className="col-sm-6 px-0 d-none d-sm-block">
-                    <img src={jmhappy} alt="login image" className="login-img" />
+                    <img src={jmhappy} alt="Happy" className="login-img" />
                 </div>
             </div>
         </motion.div>
