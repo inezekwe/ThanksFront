@@ -28,16 +28,16 @@ function Login() {
 
     //Quick test to take email and password, and if successful, redirect to /Home
     const handleClick = () => {
-        axios.post('http://localhost:4000/login', {
+        axios.post(`/login`, {
             email: userEmail,
             password: userPassword
         })
         .then((res) => {
-            console.log(res);
+            //console.log(res);
             if (res.data.message === "OK") {
                 UserProfile.setName(res.data.response[0].name);
                 UserProfile.setId(res.data.response[0].id);
-                console.log(UserProfile.getName() + UserProfile.getId());
+                //console.log(UserProfile.getName() + UserProfile.getId());
                 history.push('/Home');
             }
         })

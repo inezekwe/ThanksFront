@@ -26,6 +26,7 @@
     "react-spring": "^8.0.27",
     "web-vitals": "^0.2.4"
   },
+  "proxy": "https://gratitudes-app-1.herokuapp.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

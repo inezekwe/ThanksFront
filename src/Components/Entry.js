@@ -29,16 +29,24 @@ const Entry = () => {
         setHeadline(e.target.value)
     }
 
+
     //post entry to 'gratitude' table
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:4000/api/gratitude', {
+        axios.post(`/api/gratitude`, {
             entry: contentEditor,
             title: headline,
             id: UserProfile.getId()
         })
         .then((res) => {
-            console.log(res);
+            
+            if(res.status === 200) {
+                handleShow();
+            }
+
+        })
+        .catch(err => {
+            console.log(err);
         })
         setContentEditor('');
         setHeadline('');
@@ -95,7 +103,7 @@ const Entry = () => {
                     onEditorChange={handleEditorChange}
                 />
                 <br />
-                <Button onClick={() => handleShow()} className="mb-2" variant="outline-primary" type="submit"><FiSave size={24} /></Button>
+                <Button className="mb-2" variant="outline-primary" type="submit"><FiSave size={24} /></Button>
 
                 <Button className="mb-2 ml-3" variant="outline-secondary"><BsCloudUpload size={24} /></Button>
             </form>

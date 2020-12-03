@@ -10,7 +10,7 @@ function TimeLine() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        axios.post(`http://localhost:4000/api/saved_gratitudes`, {
+        axios.post(`/api/saved_gratitudes`, {
             id: UserProfile.getId()
         })
             .then(res => {

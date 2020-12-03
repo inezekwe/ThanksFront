@@ -34,7 +34,6 @@ function Home() {
   
         axios.get('https://quotes.rest/qod?language=en&category=inspire')
         .then(res => {
-            console.log(res.data);
             setQuote(res.data.contents.quotes[0].quote);
             setAuthor(res.data.contents.quotes[0].author);
             setQuoteImg(res.data.contents.quotes[0].background);
@@ -47,19 +46,26 @@ function Home() {
       }, []);
 
       const handleSave = () => {
-        
-          axios.post('http://localhost:4000/api/quotes', {
-              author: author,
-              quote: quote,
-              id: UserProfile.getId()
+          
+        if(author && quote && UserProfile.getId()) {
+                    
+          axios.post(`/api/quotes`, {
+            author: author,
+            quote: quote,
+            id: UserProfile.getId()
+        })
+          .then(res => {
+              if(res.status == 200)
+                  handleShow();
           })
-            .then(res => {
-                if(res.status == 200)
-                    handleShow();
-            })
-            .catch(err => {
-                console.log(err);
-            }) 
+          .catch(err => {
+              console.log(err);
+          }) 
+        }
+        else {
+            alert("oops")
+        }
+
       }
 
     return (
@@ -81,7 +87,7 @@ function Home() {
                                 <div className="user-image">
                                     <img src={iconstash} className="img-radius" alt="User-Profile" />
                                 </div>
-                                <h6 className="f-w-600 m-t-25 m-b-10">A Person</h6>
+                                <h6 className="f-w-600 m-t-25 m-b-10"> {UserProfile.getName()} </h6>
                                 <p className="text-muted">Austin, TX</p>
                                 <hr />
 

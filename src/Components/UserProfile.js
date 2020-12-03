@@ -19,17 +19,13 @@ var UserProfile = (function() {
         id = i;     
       };
 
-    const resetProfile = () => {
-      full_name = "";
-      id = null;
-    }
   
     return {
       getName: getName,
       setName: setName,
       getId: getId,
       setId: setId,
-      resetProfile: resetProfile
+
     }
   
   })();

@@ -12,7 +12,7 @@ function Collection() {
 
     useEffect(() => {
         axios
-            .post(`http://localhost:4000/api/saved_gratitudes`, {
+            .post(`/api/saved_gratitudes`, {
                 id: UserProfile.getId()
             })
             .then(res => {

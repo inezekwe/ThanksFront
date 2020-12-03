@@ -29,7 +29,7 @@ function Register() {
 
     //Quick test to take email and password and name, and if successful, redirect to /Login
     const handleClick = () => {
-        axios.post('http://localhost:4000/register', {
+        axios.post(`/register`, {
             email: userEmail,
             password: userPassword,
             name: userName

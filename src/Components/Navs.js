@@ -17,18 +17,18 @@ function Navs(props) {
 
   return (
     <div className="Navs">
-      <Navbar expand="lg">
-        <Navbar.Brand href="#home">Welcome Back {UserProfile.getName()} </Navbar.Brand>
+      <Navbar className="bg-info" expand="lg">
+        <Navbar.Brand className="text-white" href="#home">Welcome Back, {UserProfile.getName()} </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
-            <Nav.Link as={NavLink} to="/Home">Home</Nav.Link>
-            <Nav.Link as={NavLink} to="/Entry">Entry</Nav.Link>
-            <Nav.Link as={NavLink} to="/Collection">Collection</Nav.Link>
-            <Nav.Link as={NavLink} to="/TimeLine">Timeline</Nav.Link>
-            <Nav.Link as={NavLink} to="/SavedQuotes">Saved Quotes</Nav.Link>
-            <Nav.Link as={NavLink} to="/Register">Register</Nav.Link>
-            <Nav.Link as={NavLink} onClick={UserProfile.resetProfile()} to="Login">Logout</Nav.Link>
+          <Nav className="ml-auto text-white">
+            <Nav.Link as={NavLink} to="/Home" className="text-white">Home</Nav.Link>
+            <Nav.Link as={NavLink} to="/Entry" className="text-white">Entry</Nav.Link>
+            <Nav.Link as={NavLink} to="/Collection" className="text-white">Collection</Nav.Link>
+            <Nav.Link as={NavLink} to="/TimeLine" className="text-white">Timeline</Nav.Link>
+            <Nav.Link as={NavLink} to="/SavedQuotes" className="text-white">Saved Quotes</Nav.Link>
+            <Nav.Link as={NavLink} to="/Register" className="text-white">Register</Nav.Link>
+            <Nav.Link as={NavLink} to="Login" className="text-white">Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
